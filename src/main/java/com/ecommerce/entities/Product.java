@@ -38,7 +38,7 @@ public class Product {
 	private BigDecimal unitPrice;
 	
 	@Column(name = "units_in_stock")
-	private int unitInStock;
+	private int unitsInStock;
 	
 	@Column(name = "active")
 	private boolean active;
