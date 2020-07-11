@@ -8,17 +8,15 @@ import { Product } from '../common/product';
 })
 export class ProductService {
   private baseUrl = 'http://localhost:8080/api/products';
-  constructor(private httpClient: HttpClient) {
-    
-  }
-  getProductsList():Observable<Product[]>{
-    return this.httpClient.get<GetRespone>(this.baseUrl).pipe(
-      map(respone=>respone._embedded.products)
-    );
+  constructor(private httpClient: HttpClient) {}
+  getProductsList(theCategoryId: number): Observable<Product[]> {
+    return this.httpClient
+      .get<GetRespone>(this.baseUrl)
+      .pipe(map((respone) => respone._embedded.products));
   }
 }
-interface GetRespone{
-  _embedded:{
-    products:Product[]
-  }
+interface GetRespone {
+  _embedded: {
+    products: Product[];
+  };
 }
