@@ -7,19 +7,9 @@
         <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive">
       </a>
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <ul class="list-unstyled navbar-list">
-          <app-product-category-menu></app-product-category-menu>
-          <!-- <li>
-            <a href="#">Mouse Pads</a>
-          </li>
-          <li>
-            <a href="#">Luggage Tags</a>
-          </li> -->
-        </ul>
-      </nav>
-    </div>
+    <!--Category menu-->
+    <app-product-category-menu></app-product-category-menu>
+
   </aside>
   <!-- END MENU SIDEBAR-->
   <div class="page-container">
@@ -47,14 +37,14 @@
     <!-- END HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
-    
-    
-    <router-outlet></router-outlet>
-    
-     <!-- END MAIN CONTENT-->
 
-    </div>
-    
+
+    <router-outlet></router-outlet>
+
+    <!-- END MAIN CONTENT-->
+
+  </div>
+
 </div>
 <!-- END PAGE CONTAINER-->
 <footer>
