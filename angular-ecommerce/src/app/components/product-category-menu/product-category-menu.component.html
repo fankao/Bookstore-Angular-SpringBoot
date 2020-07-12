@@ -1,1 +1,3 @@
-<p>product-category-menu works!</p>
+ <li *ngFor="let item of productCategories">
+   <a routerLink="/category/{{item.id}}" routerLinkActive="active-link">{{item.categoryName}}</a>
+ </li>
