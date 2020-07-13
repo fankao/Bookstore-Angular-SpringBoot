@@ -10,4 +10,7 @@ import com.ecommerce.entities.Product;
 @CrossOrigin("http://localhost:4200")
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+	
+	//Find products by name containing
+	Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable);
 }
