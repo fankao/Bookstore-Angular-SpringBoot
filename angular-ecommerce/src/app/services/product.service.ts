@@ -19,9 +19,7 @@ export class ProductService {
     //need build URL base on category id
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
-    return this.httpClient
-      .get<GetResponeProducts>(searchUrl)
-      .pipe(map((respone) => respone._embedded.products));
+    return this.getProducts(searchUrl);
   }
 
   /**
@@ -37,10 +35,18 @@ export class ProductService {
    * Search for product by keyword service
    * @param keyWordValue
    */
-  searchProducts(keyWordValue: string) {
+  searchProducts(keyWordValue: string): Observable<Product[]> {
     const searchKeyWordUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyWordValue}`;
+    return this.getProducts(searchKeyWordUrl);
+  }
+
+  /**
+   * common methoed for get products
+   * @param searchUrl
+   */
+  private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient
-      .get<GetResponeProducts>(searchKeyWordUrl)
+      .get<GetResponeProducts>(searchUrl)
       .pipe(map((respone) => respone._embedded.products));
   }
 }
