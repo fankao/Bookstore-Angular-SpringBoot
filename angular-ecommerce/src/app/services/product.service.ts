@@ -32,6 +32,17 @@ export class ProductService {
       .get<GetResponeProductCategories>(this.categoryUrl)
       .pipe(map((respone) => respone._embedded.productCategory));
   }
+
+  /**
+   * Search for product by keyword service
+   * @param keyWordValue
+   */
+  searchProducts(keyWordValue: string) {
+    const searchKeyWordUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyWordValue}`;
+    return this.httpClient
+      .get<GetResponeProducts>(searchKeyWordUrl)
+      .pipe(map((respone) => respone._embedded.products));
+  }
 }
 interface GetResponeProducts {
   _embedded: {
