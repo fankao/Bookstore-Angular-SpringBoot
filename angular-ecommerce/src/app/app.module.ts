@@ -8,9 +8,11 @@ import { ProductService } from './services/product.service';
 import { Routes,RouterModule } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 //create route
 const routes: Routes = [
+  { path: 'product/:id', component: ProductDetailComponent },
   { path: 'search/:keyword', component: ProductListComponent },
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
@@ -20,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent, ProductCategoryMenuComponent, SearchComponent],
+  declarations: [AppComponent, ProductListComponent, ProductCategoryMenuComponent, SearchComponent, ProductDetailComponent],
   imports: [
     //configure routes base on routes
     RouterModule.forRoot(routes),
