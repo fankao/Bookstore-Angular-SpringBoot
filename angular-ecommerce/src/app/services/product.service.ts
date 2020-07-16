@@ -39,6 +39,14 @@ export class ProductService {
     const searchKeyWordUrl = `${this.baseUrl}/search/findByNameContaining?name=${keyWordValue}`;
     return this.getProducts(searchKeyWordUrl);
   }
+  /**
+   * Get product detail
+   * @param theProductId 
+   */
+  getProduct(theProductId: number):Observable<Product> {
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+    return this.httpClient.get<Product>(productUrl);
+  }
 
   /**
    * common methoed for get products

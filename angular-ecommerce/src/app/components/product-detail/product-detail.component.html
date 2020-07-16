@@ -4,23 +4,18 @@
       <div class="row">
 
         <div>
-          <img src="assets/images/products/placeholder.png" class="img-responsive" width="200px">
+          <img src="{{product.imageUrl}}" class="img-responsive detail-img">
 
-          <h3>Lorem ipsum dolor sit amet</h3>
-          <div class="price">$19.22</div>
+          <h3>{{product.name}}</h3>
+          <div class="price">{{product.unitPrice | currency:'USD'}}</div>
           <a href="shopping-detail.html" class="primary-btn">Add to cart</a>
 
           <h4>Product Description</h4>
-          <p>Duis aute irure dolor in reprehenderit in voluptate Duis aute irure dolor in
-            reprehenderit in voluptate Duis aute irure dolor in reprehenderit in voluptate. Duis
-            aute irure dolor in reprehenderit in voluptate. Duis aute irure dolor in
-            reprehenderit
-            in voluptate. Duis aute irure dolor in reprehenderit in voluptate. Duis aute irure
-            dolor
-            in reprehenderit in voluptate. Duis aute irure dolor in reprehenderit in voluptate
+          <p>
+            {{product.description}}
           </p>
 
-          <a href="home.html">Back to Product List</a>
+          <a href="/">Back to Product List</a>
         </div>
       </div>
     </div>
