@@ -10,23 +10,24 @@ import { Product } from 'src/app/common/product';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
-  product:Product;
-  constructor(private productService: ProductService, private route: ActivatedRoute) {}
+  product: Product = new Product();
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(()=>{
-      this.handleProductDetails( );
-    })
+    this.route.paramMap.subscribe(() => {
+      this.handleProductDetails();
+    });
   }
 
   handleProductDetails() {
-      //get id of product 
-      const theProductId: number = +this.route.snapshot.paramMap.get('id');
+    //get id of product
+    const theProductId: number = +this.route.snapshot.paramMap.get('id');
 
-      this.productService.getProduct(theProductId).subscribe(data =>{
-        this.product = data;
-      })
+    this.productService.getProduct(theProductId).subscribe((data) => {
+      this.product = data;
+    });
   }
-
-
 }
