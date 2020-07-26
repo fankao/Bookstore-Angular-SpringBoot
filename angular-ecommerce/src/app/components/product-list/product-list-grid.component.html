@@ -29,13 +29,18 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-9" style="padding-left: 30%;">
-                                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize"
-                                    [collectionSize]="theTotalElements" (pageChange)="listProducts()">
+                                <ngb-pagination [(page)]="thePageNumber"
+                                [pageSize]="thePageSize"
+                                [collectionSize]="theTotalElements"
+                                [maxSize]="5"
+                                [boundaryLinks] ="true"
+                                (pageChange)="listProducts()">
                                 </ngb-pagination>
                             </div>
                             <div class="col-md-3 mt-2" style="text-align: center;">
                                 <span class="mr-2">Page size</span>
                                 <select (change)="updatePageSize($event.target.value)">
+                                    <option selected="true" value="2">2</option>
                                     <option selected="true" value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="20">20</option>
