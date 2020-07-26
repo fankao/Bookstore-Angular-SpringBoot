@@ -21,14 +21,14 @@ export class CartService {
         if (this.cartItems.length > 0) {
             for (let item of this.cartItems) {
                 if (item.id === theCartItem.id) {
-                    existingCartItem = theCartItem;
+                    existingCartItem = item;
                     break;
                 }
             }
         }
 
         // check if we found it
-        alreadyExistsInCart = existingCartItem !== undefined;
+        alreadyExistsInCart = existingCartItem != undefined;
 
         if (alreadyExistsInCart) {
             existingCartItem.quantity++;
@@ -65,9 +65,11 @@ export class CartService {
             );
         }
 
-        console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
+        console.log(
+            `totalPrice: ${totalPriceValue.toFixed(
+                2
+            )}, totalQuantity: ${totalQuantityValue}`
+        );
         console.log('--------');
-
-
     }
 }
