@@ -14,20 +14,30 @@
                             <p>
                                 {{item.name}}
                             </p>
-                            <p>Product subtitle title</p>
                             <p>{{item.unitPrice | currency:'USD'}}</p>
                         </td>
                         <td>
-                            <div class="items">
-                                <label>Quantity</label> <select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <button (click) ="incrementQuantity(item)" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="col ml-4 mr-2">
+                                    {{item.quantity}}
+                                </div>
+                                <div class="col">
+                                    <button (click) = "decrementQuantity(item)" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+
+                                </div>
+
                             </div>
                             <p>Sub-total {{item.unitPrice * item.quantity | currency:'USD'}}</p>
-                            <a href="#" class="primary-btn">Remove</a>
+                            <button (click) ="remove(item)" class="btn btn-danger" role="button" onclick="return confirm('Are you sure remove this ?')">
+                                Remove
+                            </button>
                         </td>
                     </tr>
                     <tr>
